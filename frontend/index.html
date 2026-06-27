@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Exam Revision Generator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/frontend/css/style.css" />
+  <link rel="stylesheet" href="/frontend/css/animations.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="glass-card rounded-2xl p-4 mb-6 flex flex-wrap items-center justify-between gap-3">
+      <a href="/" class="font-semibold">AI Exam Revision</a>
+      <nav class="flex flex-wrap gap-3 text-sm text-slate-300">
+        <a href="/frontend/dashboard.html">Dashboard</a>
+        <a href="/frontend/upload.html">Upload</a>
+        <a href="/frontend/mcq.html">MCQs</a>
+        <a href="/frontend/flashcards.html">Flashcards</a>
+        <a href="/frontend/revision.html">Revision</a>
+        <a href="/frontend/summary.html">Summary</a>
+        <a href="/frontend/profile.html">Profile</a>
+      </nav>
+      <button data-theme-toggle class="btn-primary">Theme</button>
+    </header>
+    
+<section class="grid lg:grid-cols-2 gap-6 items-center mb-8">
+  <div class="animate-up" data-aos="fade-up">
+    <p class="badge mb-3">AI-Powered Revision</p>
+    <h1 class="text-5xl font-extrabold leading-tight hero-gradient">Revise an Entire Semester in Minutes</h1>
+    <p class="mt-4 text-slate-300">Upload your notes and let AI generate MCQs, flashcards, important questions, cheat sheets, and 10-minute revision plans instantly.</p>
+    <div class="mt-6 flex gap-3">
+      <a class="btn-primary" href="/frontend/upload.html">Upload Notes</a>
+      <a class="px-5 py-3 rounded-full glass-card" href="/frontend/dashboard.html">Try Demo</a>
+    </div>
+  </div>
+  <div class="glass-card rounded-3xl p-6 float" data-aos="zoom-in">
+    <div class="text-2xl font-semibold mb-4">Create Account</div>
+    <form id="register-form" class="space-y-3">
+      <input class="input" name="full_name" placeholder="Full Name" required />
+      <input class="input" type="email" name="email" placeholder="Email" required />
+      <input class="input" type="password" name="password" minlength="8" placeholder="Password" required />
+      <button class="btn-primary w-full" type="submit">Sign Up</button>
+    </form>
+    <p class="text-sm text-slate-400 mt-3">Already registered? Use login below.</p>
+    <form id="login-form" class="space-y-3 mt-3">
+      <input class="input" type="email" name="email" placeholder="Email" required />
+      <input class="input" type="password" name="password" minlength="8" placeholder="Password" required />
+      <button class="btn-primary w-full" type="submit">Login</button>
+    </form>
+  </div>
+</section>
+<section class="section-grid">
+  <article class="glass-card rounded-2xl p-4 animate-up" data-aos="fade-up"><h3 class="font-semibold">Students helped</h3><p class="text-3xl font-bold mt-2">25K+</p></article>
+  <article class="glass-card rounded-2xl p-4 animate-up" data-aos="fade-up"><h3 class="font-semibold">Files processed</h3><p class="text-3xl font-bold mt-2">110K+</p></article>
+  <article class="glass-card rounded-2xl p-4 animate-up" data-aos="fade-up"><h3 class="font-semibold">Questions generated</h3><p class="text-3xl font-bold mt-2">1.4M+</p></article>
+  <article class="glass-card rounded-2xl p-4 animate-up" data-aos="fade-up"><h3 class="font-semibold">Flashcards created</h3><p class="text-3xl font-bold mt-2">850K+</p></article>
+</section>
+
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/frontend/js/api.js"></script>
+  <script src="/frontend/js/theme.js"></script>
+  <script src="/frontend/js/animation.js"></script>
+  <script src="/frontend/js/app.js"></script>
+</body>
+</html>
