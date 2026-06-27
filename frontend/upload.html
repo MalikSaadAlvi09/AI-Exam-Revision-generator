@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload Notes</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="glass card nav">
+      <strong>Upload</strong>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <button id="theme-toggle" type="button">Theme</button>
+      </div>
+    </header>
+
+    <main class="glass card">
+      <h1>Upload Study Material</h1>
+      <p>Supported: PDF, DOCX, TXT, PPT/PPTX, PNG, JPG, JPEG. Max 100MB.</p>
+      <label for="upload_file">Select file</label>
+      <input id="upload_file" type="file" accept=".pdf,.docx,.txt,.ppt,.pptx,.png,.jpg,.jpeg" />
+      <p><button id="upload_btn" type="button">Upload</button></p>
+
+      <h2>Or paste text</h2>
+      <textarea id="pasted_text" placeholder="Paste your notes here"></textarea>
+      <p><button id="generate_btn" type="button">Generate Revision Pack</button></p>
+      <pre id="output" class="output glass card" aria-live="polite"></pre>
+    </main>
+  </div>
+  <script type="module" src="js/theme.js"></script>
+  <script type="module" src="js/upload.js"></script>
+</body>
+</html>

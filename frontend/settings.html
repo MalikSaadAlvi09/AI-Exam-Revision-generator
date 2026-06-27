@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="glass card nav">
+      <strong>Settings</strong>
+      <div>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="upload.html">Upload</a>
+        <button id="theme-toggle" type="button">Theme</button>
+      </div>
+    </header>
+    <main class="glass card">
+      <h1>Settings</h1>
+      <pre id="content" class="output">Open upload page, generate content, then view latest output from local storage.</pre>
+    </main>
+  </div>
+  <script type="module" src="js/theme.js"></script>
+  <script>
+    const outputs = JSON.parse(localStorage.getItem('latestOutputs') || '{}');
+    const map = {
+      flashcards: 'flashcards',
+      mcq: 'mcqs',
+      revision: 'revision',
+      cheatsheet: 'cheatsheet',
+      summary: 'summary',
+      important: 'important',
+      profile: 'interview_questions',
+      settings: 'definitions'
+    };
+    const key = map['settings'];
+    const text = outputs[key] || 'No generated content available yet.';
+    document.getElementById('content').textContent = text;
+  </script>
+</body>
+</html>
