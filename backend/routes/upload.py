@@ -29,7 +29,7 @@ async def upload_material(
     current_user: User = Depends(get_current_user),
 ) -> UploadResponse:
     """Validate uploaded file, extract text, and save upload metadata."""
-    extension = Path(file.filename).suffix.lower()
+    extension = Path(str(file.filename)).suffix.lower()
     if extension not in ALLOWED_EXTENSIONS:
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Unsupported file type")
 
@@ -62,4 +62,4 @@ async def upload_material(
     db.add(upload)
     db.commit()
     db.refresh(upload)
-    return UploadResponse(upload_id=upload.id, filename=upload.filename, extracted_characters=len(normalized))
+    return UploadResponse(upload_id=int(upload.id), filename=str(upload.filename), extracted_characters=len(normalized))
