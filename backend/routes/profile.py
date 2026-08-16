@@ -15,11 +15,11 @@ router = APIRouter(tags=["profile"])
 async def get_profile(current_user: User = Depends(get_current_user)) -> UserProfileResponse:
     """Return profile details for the authenticated user."""
     return UserProfileResponse(
-        id=current_user.id,
-        email=current_user.email,
-        full_name=current_user.full_name,
-        dark_mode=current_user.dark_mode,
-        created_at=current_user.created_at,
+        id=int(current_user.id),
+        email=str(current_user.email),
+        full_name=str(current_user.full_name),
+        dark_mode=bool(current_user.dark_mode),
+        created_at=current_user.created_at,  # type: ignore
     )
 
 
@@ -30,15 +30,15 @@ async def update_profile(
     current_user: User = Depends(get_current_user),
 ) -> UserProfileResponse:
     """Update editable user profile values."""
-    current_user.full_name = payload.full_name
-    current_user.dark_mode = payload.dark_mode
+    current_user.full_name = payload.full_name  # type: ignore
+    current_user.dark_mode = payload.dark_mode  # type: ignore
     db.add(current_user)
     db.commit()
     db.refresh(current_user)
     return UserProfileResponse(
-        id=current_user.id,
-        email=current_user.email,
-        full_name=current_user.full_name,
-        dark_mode=current_user.dark_mode,
-        created_at=current_user.created_at,
+        id=int(current_user.id),
+        email=str(current_user.email),
+        full_name=str(current_user.full_name),
+        dark_mode=bool(current_user.dark_mode),
+        created_at=current_user.created_at,  # type: ignore
     )

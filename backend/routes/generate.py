@@ -25,11 +25,11 @@ async def generate_revision(
     if not upload:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Upload not found")
 
-    outputs = generate_all_outputs(upload.extracted_text)
+    outputs = generate_all_outputs(str(upload.extracted_text))
 
     db.query(GeneratedContent).filter(GeneratedContent.upload_id == upload.id).delete()
     for content_type, data in outputs.items():
-        db.add(GeneratedContent(upload_id=upload.id, content_type=content_type, payload=json.dumps(data)))
+        db.add(GeneratedContent(upload_id=int(upload.id), content_type=content_type, payload=json.dumps(data)))
     db.commit()
 
-    return GeneratedResultResponse(upload_id=upload.id, outputs=outputs)
+    return GeneratedResultResponse(upload_id=int(upload.id), outputs=outputs)
